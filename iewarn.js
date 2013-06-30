@@ -76,44 +76,16 @@ var iewarn = {
 
     },
 
-    // the styles for box, etc.
-    styles : function() {
-
-        //@formatter:off
-        var styles = [
-            "#iewarning { position: fixed; z-index: 99999; bottom: 0px; left: 0px; right: 0px; background: #f5f5f5; padding: 20px 5%; color: #555555; font-size: 16px; font-family: Arial; border-top: 5px solid #303030; text-align: center; }",
-            "#iewarning h1 { letter-spacing: 0px; font-size: 18px; color: #202020; padding: 0px; margin: 0px 0px 10px 0px; }",
-            "#iewarning table { margin: 20px auto 0px auto; }",
-            "#iewarning td { font-size: 12px; padding: 0px 20px; }",
-            "#iewarning a { color: #707070; }",
-            "#iewarning a:hover { color: #202020; }",
-            "#iewarning-close { color: #202020; cursor: pointer; font-weight: bold; }",
-            "* html,* html body /* IE6 Fixed Position Jitter Fix */{background-image:url(about:blank);background-attachment:fixed;}",
-            "* html #iewarning /* IE6 position fixed Bottom */{position:absolute;bottom:auto;top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));}"
-        ];
-        //@formatter:on
-
-        var data = '';
-
-        for (key in styles) {
-            data += styles[key] + ' ';
-        }
-
-        this.style(data);
-
-    },
-
     // show the warning box
     show : function() {
 
         if (this.cookie('iewarning'))
             return;
 
-        // set styles
-        this.styles();
+        var body, iebox, browser, browsers, language, img, link;
 
         // get browser language
-        var language = window.navigator.userLanguage || window.navigator.language;
+        language = window.navigator.userLanguage || window.navigator.language;
         language = language.toLowerCase();
 
         if (language == 'hu')
@@ -122,15 +94,15 @@ var iewarn = {
         if (!this.message[language])
             language = 'en-us';
 
-        var body = document.getElementsByTagName('body')[0];
-        var iebox = document.createElement('div');
-        var browsers = '';
+        body = document.getElementsByTagName("body")[0];
+        iebox = document.createElement('div');
+        browsers = '';
 
         for (key in this.browsers) {
 
-            var browser = this.browsers[key];
-            var img = '<img width="18" src="' + browser.icon + '" alt="" />';
-            var link = '<a href="' + browser.url + '" target="_blank">' + img + '<br />' + browser.name + '</a>';
+            browser = this.browsers[key];
+            img = '<img width="18" src="' + browser.icon + '" alt="" />';
+            link = '<a href="' + browser.url + '" target="_blank">' + img + '<br />' + browser.name + '</a>';
             browsers = browsers + '<td>' + link + '</td>';
 
         }
@@ -145,30 +117,11 @@ var iewarn = {
     close : function() {
 
         this.cookie('iewarning', true);
-
+        
         var obj = document.getElementById('iewarning');
 
         if (obj)
             obj.parentNode.removeChild(obj);
-
-    },
-
-    // add new style function
-    style : function(str) {
-
-        var head = document.getElementsByTagName('head')[0];
-        var style = document.createElement('style');
-
-        style.type = 'text/css';
-        style.media = 'screen';
-
-        if (style.styleSheet) {
-            style.styleSheet.cssText = str;
-        } else {
-            style.appendChild(document.createTextNode(str));
-        }
-
-        head.appendChild(style);
 
     },
 
