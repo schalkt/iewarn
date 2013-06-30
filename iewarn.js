@@ -89,10 +89,11 @@
         close : function() {
 
             // set the cookie
-            cookie('iewarn', true);
+            cookie(fn, true);
 
             // remove warning box
             var obj = document.getElementById('iewarn');
+            
             if (obj) {
                 obj.parentNode.removeChild(obj);
             }
@@ -134,7 +135,7 @@
     }
 
     // if cookie true return
-    if (cookie('iewarn')) {
+    if (cookie(fn)) {
         return;
     }
 
@@ -151,12 +152,10 @@
     if (!message[language]) {
         language = 'en-us';
     }
-    
-    language = 'en-us';
 
     // get body and create warning box
     body = document.getElementsByTagName("body")[0];
-    iebox = document.createElement('div');
+    wbox = document.createElement('div');
     list = '';
 
     // generate browsers informations
@@ -170,15 +169,15 @@
     }
 
     // set warning box id and html
-    iebox.setAttribute("id", "iewarn");
-    button = '<span id="iewarn-close" onclick="javascript: iewarn.close();">' + button[language] + '</span>';
+    wbox.setAttribute("id", "iewarn");
+    button = '<span id="iewarn-close" onclick="javascript: ' + fn + '.close();">' + button[language] + '</span>';
     html = '<h1>' + title[language] + '</h1>';
     html += '<div class="text">' + message[language] + '<div class="list">' + list + '</div>' + button + '</div>';
 
-    iebox.innerHTML = html;
+    wbox.innerHTML = html;
 
     // append to body
-    body.appendChild(iebox);
+    body.appendChild(wbox);
 
 })('iewarn');
 

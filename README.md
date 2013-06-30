@@ -1,16 +1,17 @@
 Internet Explorer warning message
 =============
 
-Show the bottom alert message when the visitor is using Internet Explorer 7 or lower browser.
-Informing visitors of the modern browsers download links.
+Show a bottom alert message when the visitor is using Internet Explorer 7 or lower browser.
+Informing visitor of the modern browsers download links.
 
 Features:
 - no jQuery needed
 - customizable style
-- easy language adding
+- easy language adding (en, de, fr and hu already available)
 - cookie based close button (timeout by session or days)
 - the webpage is still visible above the warning box 
-- load browser icons from another locations (customizable) 
+- load browser icons from another locations (customizable)
+
 
 ![Example Screenshot](http://schalk.hu/projects/iewarn/demo/screenshot.jpg)
 
