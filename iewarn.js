@@ -26,19 +26,25 @@
     // the title
     title = {
         'hu-hu' : "Tud róla, hogy az Ön Internet Explorer böngészője elavult?",
-        'en-us' : "Did you know that your Internet Explorer is out of date?"
+        'en-us' : "Did you know that your Internet Explorer is out of date?",
+        'fr' : "Saviez-vous que votre Internet Explorer n'est pas à jour?",
+        'de' : "Wussten Sie, dass Ihr Internet Explorer nicht mehr aktuell ist?"
     };
 
     // the message
     message = {
         'hu-hu' : "Weboldalunk az Ön képernyőjén hibásan jelenhet meg! A jobb böngészési élményért és a biztonságos internethasználathoz javasoljuk, hogy frissítse Internet Explorer-ét a legújabb verzióra, vagy próbáljon ki más korszerű böngészőprogramot. Az alábbi lista tartalmazza a legnépszerűbb, ingyenesen elérhető alternatívákat. Letöltéshez kattintson az ikonok egyikére.",
-        'en-us' : "Our website may be displayed incorrectly on your screen! To get safe and best possible browsing experience we recommend that you upgrade to a newer version or other web browser. A list of the most popular web browsers can be found below. Just click on the icons to get to the download page."
+        'en-us' : "Our website may be displayed incorrectly on your screen! To get safe and best possible browsing experience we recommend that you upgrade to a newer version or other web browser. A list of the most popular web browsers can be found below. Just click on the icons to get to the download page.",
+        'fr' : "Notre site Web peut ne pas s'afficher correctement sur ​​votre écran! Pour obtenir de l'expérience de navigation sécuritaire et meilleur possible, nous vous recommandons de mettre à jour vers une nouvelle version ou un autre navigateur Web. Une liste des navigateurs les plus populaires se trouve ci-dessous. Il suffit de cliquer sur les icônes pour accéder à la page de téléchargement.",
+        'de' : "Unsere Website kann nicht korrekt auf dem Bildschirm angezeigt werden! Um einen sicheren und bestmögliche Surferlebnis zu bekommen, empfehlen wir, dass Sie auf eine neuere Version oder andere Web-Browser aktualisieren. Eine Liste der beliebtesten Web-Browser können unten gefunden werden. Einfach auf die Symbole klicken, um zur Download-Seite zu bekommen."
     };
 
     // the close button
     button = {
         'hu-hu' : ' Figyelmeztetés bezárása és emkékeztetés később.',
-        'en-us' : ' Remind me later.'
+        'en-us' : ' Remind me later.',
+        'fr' : "Rappelez-moi plus tard.",
+        'de' : "Später erinnern."
     };
 
     // browser name, url and icon
@@ -77,7 +83,7 @@
 
     };
 
-    // close the warning box
+    // warning box close function
     window[fn] = {
 
         close : function() {
@@ -145,6 +151,8 @@
     if (!message[language]) {
         language = 'en-us';
     }
+    
+    language = 'en-us';
 
     // get body and create warning box
     body = document.getElementsByTagName("body")[0];
