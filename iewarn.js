@@ -1,6 +1,6 @@
 /*
  * iewarn.js
- * v1.1 - 2013.06.30
+ * v1.2 - 2013.06.30
  *
  * The iewarn is a javascript code that displays a warning message
  * on the webpage bottom for informing the visitor to upgrade
